@@ -24,7 +24,7 @@ result = tester(); // a global variable reference, so that tester() and its inne
 for(j = 0; j < 10; j++) {
   console.log(result());
 }
-// output: 1 2 3 4 5 6 7 8 9 10
+// output: 1 2 3 4 5 6 7 8 9 10  (in each line)
 ```
 http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html
 
@@ -85,4 +85,6 @@ func main() {
 		fmt.Println(f())
 	}
 }
+// output: 0 1 1 2 3 5 8 13 21 34 (in each line)
+
 ```
