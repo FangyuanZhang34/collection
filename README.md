@@ -3,11 +3,13 @@ Collection
 <a href="#1">Closure in JavaScript and Go</a>
 <br><br><br><br><br><br><br><br><br>
 
-### Closure in JavaScript and Go<a id="1"/>
+<a id="1"/><br>
+### Closure in JavaScript and Go
 <a href="#1_1">JavaScript</a><br>
-<a href="#1_2">Go</a>
+<a href="#1_2">Go</a><br><br>
 
-#### JavaScript<a id="1_1"/>
+<a id="1_1"/><br>
+#### JavaScript
 ```javascript
 function tester() {
   var i = 0;
@@ -25,10 +27,10 @@ for(j = 0; j < 10; j++) {
 // output: 1 2 3 4 5 6 7 8 9 10
 ```
 http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html
+<br><br>
 
 
-
-
+<a id="1_1"/><br>
 #### Go<a id="1_2"/>
 ```go
 // add by one
