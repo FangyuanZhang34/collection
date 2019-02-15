@@ -8,7 +8,7 @@ Collection
 <a href="#1_1">JavaScript</a><br>
 <a href="#1_2">Go</a>
 
-<a id="1_1"/>\n
+<a id="1_1"/>
 #### JavaScript
 ```javascript
 function tester() {
@@ -29,7 +29,7 @@ for(j = 0; j < 10; j++) {
 http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html
 
 
-<a id="1_2"/>\n
+<a id="1_2"/>
 #### Go
 ```go
 // add by one
