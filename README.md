@@ -1,14 +1,14 @@
 Collection
 ==========
-<a href="#1">Closure in JavaScript and Go</a>
+<a href="#1">1. Closure in JavaScript and Go</a>
 <br><br><br><br>
 
-<a id="1"/><br>
-### Closure in JavaScript and Go
+<a id="1"/><hr>
+### 1. Closure in JavaScript and Go
 <a href="#1_1">JavaScript</a><br>
 <a href="#1_2">Go</a>
 
-<a id="1_1"/><br>
+<a id="1_1"/><hr>
 #### JavaScript
 ```javascript
 function tester() {
@@ -29,7 +29,7 @@ for(j = 0; j < 10; j++) {
 http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html
 
 
-<a id="1_1"/><br>
+<a id="1_1"/><hr>
 #### Go<a id="1_2"/>
 ```go
 // add by one
