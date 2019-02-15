@@ -14,3 +14,4 @@ for(j = 0; j < 10; j++) {
 
 
 // output: 1 2 3 4 5 6 7 8 9 10
+// http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html
