@@ -42,3 +42,38 @@ func main() {
 		fmt.Println(f())
 	}
 }
+
+
+
+
+// fibonacci is a function that returns
+// a function that returns an int.
+package main
+import "fmt"
+
+func fibonacci() func() int {
+	a := 0
+	b := 1
+	index := 0
+	c := 0
+	return func() int {
+		if index == 0 {
+		  c = 0
+		} else if index == 1 {
+		  c = 1
+		} else {
+			c = a + b
+			a = b
+			b = c
+		}
+		index++
+		return c
+	}
+}
+
+func main() {
+	f := fibonacci()
+	for i := 0; i < 10; i++ {
+		fmt.Println(f())
+	}
+}
