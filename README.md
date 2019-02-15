@@ -8,8 +8,8 @@ Collection
 <a href="#1_1">JavaScript</a><br>
 <a href="#1_2">Go</a>
 
-
-#### JavaScript<a id="1_1"/>
+<a id="1_1"/>\n
+#### JavaScript
 ```javascript
 function tester() {
   var i = 0;
@@ -29,8 +29,8 @@ for(j = 0; j < 10; j++) {
 http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html
 
 
-
-#### Go<a id="1_2"/><a id="1_1"/>
+<a id="1_2"/>\n
+#### Go
 ```go
 // add by one
 package main
