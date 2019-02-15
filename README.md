@@ -8,7 +8,7 @@ Collection
 <a href="#1_1">JavaScript</a><br>
 <a href="#1_2">Go</a>
 
-\<br>
+
 #### JavaScript<a id="1_1"/>
 ```javascript
 function tester() {
