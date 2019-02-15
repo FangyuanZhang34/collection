@@ -4,7 +4,7 @@ Collection
 <br><br><br><br>
 
 <a id="1"/>
-### 1.Closure in JavaScript and Go
+### Closure in JavaScript and Go
 <a href="#1_1">JavaScript</a><br>
 <a href="#1_2">Go</a>
 
