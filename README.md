@@ -58,21 +58,10 @@ func main() {
 package main
 import "fmt"
 func fibonacci() func() int {
-	a := 0
-	b := 1
-	index := 0
-	c := 0
+	a, b := 0, 1
 	return func() int {
-		if index == 0 {
-		  c = 0
-		} else if index == 1 {
-		  c = 1
-		} else {
-			c = a + b
-			a = b
-			b = c
-		}
-		index++
+		c := a
+		a, b = b, a + b
 		return c
 	}
 }
