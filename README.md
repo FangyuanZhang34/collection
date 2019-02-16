@@ -1,6 +1,6 @@
 Collection
 ==========
-<a href="#1">1. Closure in JavaScript and Go</a>
+<a href="#1">1. Closure in JavaScript and Go</a><br>
 <a href="#2">2. Pointer Receiver in Go</a>
 <br><br><br><br>
 
@@ -107,7 +107,7 @@ func main() {
 	fmt.Println(i.Abs())
 }
 ```
-Methods with pointer receivers can <em>modify the value</em> to which the receiver points. 
+Methods with pointer receivers can <b>modify the value</b> to which the receiver points. 
 Since methods often need to modify their receiver, pointer receivers are more common than value receivers.
 ```go
 package main
