@@ -366,7 +366,7 @@ public class MyHashMap<K, V> {
     }
 }
 ```
-Difference between mod and remainder: 
--21 mod 4 is 3 because -21 + 4 x 6 is 3.
+Difference between mod and remainder: <br>
+-21 mod 4 is 3 because -21 + 4 x 6 is 3.<br>
 But -21 divided by 4 gives -5 with a remainder of -1.
 
