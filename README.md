@@ -1,7 +1,8 @@
 Collection
 ==========
 <a href="#1">1. Closure in JavaScript and Go</a><br>
-<a href="#2">2. Pointer Receiver in Go</a>
+<a href="#2">2. Pointer Receiver in Go</a><br>
+<a href="#3">3. HashMap Implementation in Java</a>
 <br><br><br><br>
 
 <a id="1"/><hr>
@@ -140,3 +141,232 @@ func main() {
 // output: {6 8} &{6 8}
 
 ```
+<a id="3"/><hr>
+### 3.HashMap Implementation in Java
+```java
+import java.util.Arrays;
+// API
+// Data -> fields
+// Constructor -> capacity, loadFactor, no parameter, overload
+// Implementation -> deal with the possible null key
+public class MyHashMap<K, V> {
+    public static class Node<K, V> {
+        final K key;
+        V value;
+        Node<K, V> next;
+
+        Node(K key, V value) {
+            this.key = key;
+            this.value = value;
+            next = null;
+        }
+
+        public K getKey() {
+            return key;
+        }
+        public V getValue() {
+            return value;
+        }
+        public Node getNext() {
+            return next;
+        }
+    }
+
+    public static final int DEFAULT_CAPACITY = 1;
+    public static final float LOAD_FACTOR = 0.75f;
+
+    // Data -> fields:
+    private int capacity; // length of the array
+    private float loadFactor; // rehash load factor is fixed
+    private int size; // size of the HashMap
+    private Node[] array;
+
+    public MyHashMap(int capacity, float loadFactor) {
+        this.capacity = capacity;
+        this.loadFactor = loadFactor;
+        this.size = 0;
+        array = new Node[capacity];
+    }
+
+    public MyHashMap() {
+        this(DEFAULT_CAPACITY, LOAD_FACTOR);
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public boolean isEmpty() {
+        return (size == 0);
+    }
+
+    // put
+    // If the key exists in the linked list: set value to new value
+    // If the key doesn't exist: add it to head of the linked list
+    public V put(K key, V value) {
+        int index = getIndex(key);
+        Node<K, V> newNode = new Node<>(key, value);
+        Node<K, V> cur = array[index];
+        while(cur != null) {
+            if(equalsKey(cur.key, key)){
+                V oldValue = cur.value;
+                cur.value = value;
+                return oldValue;
+            }
+            cur = cur.next;
+        }
+        newNode.next = array[index];
+        array[index] = newNode;
+        size++;
+        if(needRehashing()) {
+            rehash();
+        }
+        return null;
+    }
+
+    // get
+    // If key exists: return value
+    // If key doesn't exist: return null
+    public V get(K key) {
+        int index = getIndex(key);
+        Node<K, V> cur = array[index];
+        while(cur != null) {
+            if(equalsKey(cur.key, key)) {
+                return cur.value;
+            }
+            cur = cur.next;
+        }
+        return null;
+    }
+
+    // containsKey:
+    // If contains key: return true
+    // If doesn't contain key: return false
+    public boolean containsKey(K key) {
+        int index = getIndex(key);
+        Node<K, V> cur = array[index];
+        while(cur != null) {
+            if(equalsKey(cur.key, key)) {
+                return true;
+            }
+            cur = cur.next;
+        }
+        return false;
+    }
+
+    // remove:
+    // If contains key: remove it in the linked list, return prev value
+    // If doesn't contain key: return null
+    public V remove(K key) {
+        int index = getIndex(key);
+        Node<K, V> cur = array[index];
+        Node<K, V> prev = null;
+        while(cur != null) {
+            if(equalsKey(cur.key, key)) {
+                prev.next = cur.next;
+                cur.next = null;
+                size--;
+                return cur.value;
+            }
+            prev = cur;
+            cur = cur.next;
+        }
+        return null;
+    }
+
+    // containsValue:
+    // check each entry and the linked list to find the value
+    public boolean containsValue(V value) {
+        for(Node<K, V> node : array) {
+            Node<K, V> cur = node;
+            while(cur != null) {
+                if(equalsValue(cur.value, value)) {
+                    return true;
+                }
+                cur = cur.next;
+            }
+        }
+        return false;
+    }
+
+    // clear:
+    // fill all the entries of array with null
+    public void clear() {
+        Arrays.fill(array, null);
+        size = 0;
+    }
+
+
+    // getIndex:
+    // get index from hashCode
+    public int getIndex(K key) {
+        return hash(key) % array.length;
+    }
+
+    // hash:
+    // get a positive hashCode
+    // If key is null : hash = 0;
+    // If key is not null : hash = a positive hash
+    public int hash(K key) {
+        if(key == null) {
+            return 0;
+        }
+        return key.hashCode() & 0x7fffffff; // ensure that the hash is positive
+    }
+
+    // equalsKey:
+    // check if key1 and key2 are equal or are both null
+    public boolean equalsKey(K key1, K key2) {
+        if(key1 == null && key2 == null) {
+            return true;
+        }
+        if(key1 == null || key2 == null) {
+            return false;
+        }
+        return key1.equals(key2);
+    }
+
+    // equalsValue:
+    // check if value1 and value2 are equal or both are null
+    public boolean equalsValue(V value1, V value2) {
+        if(value1 == null && value2 == null) {
+            return true;
+        }
+        if(value1 == null || value2 == null) {
+            return false;
+        }
+        return value1.equals(value2);
+    }
+
+    // needRehashing():
+    // check if the ratio of array.length / size <= LOAD_FACTOR
+    public boolean needRehashing() {
+        float ratio = (array.length + 0.0f) / size;
+        return ratio <= LOAD_FACTOR;
+    }
+
+    // rehash():
+    // create a new double-sized array
+    // put all the entries into the new array
+    public void rehash() {
+        System.out.println("Rehashing start");
+        Node<K, V>[] oldArray = this.array;
+        Node<K, V>[] newArray = new Node[oldArray.length * 2];
+        this.array = newArray;
+        size = 0;
+        capacity = oldArray.length * 2;
+        for(Node<K, V> node : oldArray) {
+            Node<K, V> cur = node;
+            while(cur != null) {
+                put(cur.key, cur.value);
+                cur = cur.next;
+            }
+        }
+        System.out.println("Rehashing over");
+    }
+}
+```
+Difference between mod and remainder: 
+-21 mod 4 is 3 because -21 + 4 x 6 is 3.
+But -21 divided by 4 gives -5 with a remainder of -1.
+
