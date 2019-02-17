@@ -118,7 +118,7 @@ func main() {
 }
 // output: {30 40}
 ```
-For methods with pointer receiver, if the argument is a value but not a pointer, Go will interpret v as (&v) automatically.
+For methods with pointer receiver, if the argument is a value but not a pointer, Go will interpret v as (&v) automatically, and vice versa.
 ```go
 package main
 import "fmt"
@@ -129,18 +129,30 @@ func (v *Vertex) Scale(f float64) {
 	v.X = v.X * f
 	v.Y = v.Y * f
 }
+func (v Vertex) sum () float64 {
+	return v.X + v.Y
+}
 func main() {
+////v --> *v////////////////////////
 	v := Vertex{3, 4}
 	v.Scale(2)
 
 	p := &Vertex{3, 4}
 	p.Scale(2)
 
-	fmt.Println(v, p)
-}
-// output: {6 8} &{6 8}
+	fmt.Println(v, *p)
+///*v --> v/////////////////////////	
+	a := v.sum()
+	
+	b := p.sum()
 
+	fmt.Println(a, b)
+}
+// output: {6 8} {6 8}  14 14
 ```
+
+
+
 <a id="3"/><hr>
 ### 3.HashMap Implementation in Java
 ```java
