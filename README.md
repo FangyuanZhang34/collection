@@ -382,3 +382,32 @@ Difference between mod and remainder: <br>
 -21 mod 4 is 3 because -21 + 4 x 6 is 3.<br>
 But -21 divided by 4 gives -5 with a remainder of -1.
 
+#### 4. fmt.Springer Interface 
+Like override toString() in Java, we can define our own "naive" format for printing the value.
+In GoDoc, this interface is written as:
+```go
+type Stringer interface {
+        String() string
+}
+```
+As an example: to print IP address in a format as "x.x.x.x".
+```go
+package main
+import "fmt"
+type IPAddr [4]byte
+// Add a "String() string" method to IPAddr.
+func (ip IPAddr) String() string {
+	return fmt.Sprintf("%v.%v.%v.%v", ip[0], ip[1], ip[2], ip[3])
+}
+func main() {
+	hosts := map[string]IPAddr{
+		"loopback":  {127, 0, 0, 1},
+		"googleDNS": {8, 8, 8, 8},
+	}
+	for name, ip := range hosts {
+		fmt.Printf("%v: %v\n", name, ip)
+	}
+}
+//	output:	loopback: 127.0.0.1
+//		googleDNS: 8.8.8.8
+```
