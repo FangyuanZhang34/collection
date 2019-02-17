@@ -3,7 +3,8 @@ Collection
 <a href="#1">1. Closure in JavaScript and Go</a><br>
 <a href="#2">2. Pointer Receiver in Go</a><br>
 <a href="#3">3. HashMap Implementation in Java</a><br>
-<a href="#4">4. fmt.Springer Interface in Go</a>
+<a href="#4">4. fmt.Springer Interface in Go</a><br>
+<a href="#5">5. characters in Go</a>
 <br><br><br><br>
 
 <a id="1"/><hr>
@@ -412,4 +413,19 @@ func main() {
 }
 //	output:	loopback: 127.0.0.1
 //		googleDNS: 8.8.8.8
+```
+
+<a id="5"/><hr>
+### 5.characters in Go
+There is no char type in Go, however, a character can be declared as a byte type(ASCII, 8bits) or a rune type(UTF-32, 32bits).
+```go
+package main
+import "fmt"
+func main() {
+	var a rune = '♥'
+	var b byte = 'a'
+	fmt.Printf("%v, %v", a, b)
+}
+// output: 9829, 97
+
 ```
