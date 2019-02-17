@@ -2,7 +2,8 @@ Collection
 ==========
 <a href="#1">1. Closure in JavaScript and Go</a><br>
 <a href="#2">2. Pointer Receiver in Go</a><br>
-<a href="#3">3. HashMap Implementation in Java</a>
+<a href="#3">3. HashMap Implementation in Java</a><br>
+<a href="#4">4. fmt.Springer Interface</a>
 <br><br><br><br>
 
 <a id="1"/><hr>
@@ -382,7 +383,8 @@ Difference between mod and remainder: <br>
 -21 mod 4 is 3 because -21 + 4 x 6 is 3.<br>
 But -21 divided by 4 gives -5 with a remainder of -1.
 
-#### 4. fmt.Springer Interface 
+<a id="4"/><hr>
+### 4. fmt.Springer Interface 
 Like override toString() in Java, we can define our own "naive" format for printing the value.
 In GoDoc, this interface is written as:
 ```go
