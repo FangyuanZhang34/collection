@@ -385,7 +385,7 @@ But -21 divided by 4 gives -5 with a remainder of -1.
 
 <a id="4"/><hr>
 ### 4. fmt.Springer Interface 
-Like override toString() in Java, we can define our own "naive" format for printing a value.
+Like override toString() in Java, we can define our own "native" format for printing a value.
 In GoDoc, Stringer interface is written as:
 ```go
 type Stringer interface {
