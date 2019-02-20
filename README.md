@@ -4,7 +4,7 @@ Collection
 <a href="#2">2. Pointer Receiver in Go</a><br>
 <a href="#3">3. HashMap Implementation in Java</a><br>
 <a href="#4">4. fmt.Springer Interface in Go</a><br>
-<a href="#5">5. Characters in Go</a>
+<a href="#5">5. Characters in Go</a><br>
 <a href="#6">6. Empty Interface in Go</a>
 <br><br><br><br>
 
