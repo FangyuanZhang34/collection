@@ -5,7 +5,8 @@ Collection
 <a href="#3">3. HashMap Implementation in Java</a><br>
 <a href="#4">4. fmt.Springer Interface in Go</a><br>
 <a href="#5">5. Characters in Go</a><br>
-<a href="#6">6. Empty Interface in Go</a>
+<a href="#6">6. Empty Interface in Go</a><br>
+<a href="#7">7. Error in Go</a>
 <br><br><br><br>
 
 <a id="1"/><hr>
@@ -455,4 +456,39 @@ It is used when the code handles variables of unknown type.
 An example is function fmt.Print/ fmt.Printf/ fmt.Println. Their argument can be an empty interface. fmt.Println is defined as:
 ```go
 func Println(a ...interface{}) (n int, err error)
+```
+<a href="#7">6. Error in Go</a>
+The built-in interface error is defined as:
+```go
+type error interface {
+    Error() string
+}
+```
+The calling code should handle errors by testing whether error is nil.
+```go
+package main
+import (
+	"fmt"
+	"time"
+)
+type MyError struct {
+	When time.Time
+	What string
+}
+func (e *MyError) Error() string {
+	return fmt.Sprintf("at %v, %s",
+		e.When, e.What)
+}
+func run() error {
+	return &MyError{
+		time.Now(),
+		"it didn't work",
+	}
+}
+func main() {
+	if err := run(); err != nil {
+		fmt.Println(err)
+	}
+}
+// output: at .... it didn't work
 ```
