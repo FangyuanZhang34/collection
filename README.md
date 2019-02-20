@@ -457,7 +457,9 @@ An example is function fmt.Print/ fmt.Printf/ fmt.Println. Their argument can be
 ```go
 func Println(a ...interface{}) (n int, err error)
 ```
-<a href="#7">6. Error in Go</a>
+
+<a id="7"/><hr>
+### 7. Error in Go
 The built-in interface error is defined as:
 ```go
 type error interface {
