@@ -5,6 +5,7 @@ Collection
 <a href="#3">3. HashMap Implementation in Java</a><br>
 <a href="#4">4. fmt.Springer Interface in Go</a><br>
 <a href="#5">5. Characters in Go</a>
+<a href="#6">6. Empty Interface in Go</a>
 <br><br><br><br>
 
 <a id="1"/><hr>
@@ -430,4 +431,28 @@ func main() {
 }
 // output: 9829, 97
 
+```
+
+<a id="6"/><hr>
+### 6. Empty Interface in Go
+An empty interface can hold any value without define any method of a specific type(because there is no method declared in the interface yet). For example:
+```go
+package main
+import "fmt"
+func main() {
+	var i interface{}
+	fmt.Println(i)
+	
+	i = 42
+	fmt.Println(i)
+	
+	i = "hello"
+	fmt.Print(i) 
+}
+// output: <nil> 42 hello 	(in each line)
+```
+It is used when the code handles variables of unknown type.
+An example is function fmt.Print/ fmt.Printf/ fmt.Println. Their argument can be an empty interface. fmt.Println is defined as:
+```go
+func Println(a ...interface{}) (n int, err error)
 ```
