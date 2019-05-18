@@ -195,7 +195,7 @@ public class MyHashMap<K, V> {
 
     // Data -> fields:
     private int capacity; // length of the array
-    private float loadFactor; // rehash load factor is fixed
+    private float loadFactor; // rehash load factor is fixed (size / array.length limitation)
     private int size; // size of the HashMap
     private Node[] array;
 
@@ -357,10 +357,10 @@ public class MyHashMap<K, V> {
     }
 
     // needRehashing():
-    // check if the ratio of array.length / size <= LOAD_FACTOR
+    // check if the ratio of size / array.length >= LOAD_FACTOR
     public boolean needRehashing() {
-        float ratio = (array.length + 0.0f) / size;
-        return ratio <= LOAD_FACTOR;
+        float ratio = (size + 0.0f) / array.length;
+        return ratio >= LOAD_FACTOR;
     }
 
     // rehash():
