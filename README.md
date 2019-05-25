@@ -7,6 +7,7 @@ Collection
 <a href="#5">5. Characters in Go</a><br>
 <a href="#6">6. Empty Interface in Go</a><br>
 <a href="#7">7. Error in Go</a>
+<a href="#7">8. FFT</a>
 <br><br><br><br>
 
 <a id="1"/><hr>
@@ -494,3 +495,5 @@ func main() {
 }
 // output: at .... it didn't work
 ```
+<a id="8"/><hr>
+### 8. FFT
