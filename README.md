@@ -8,7 +8,7 @@ Collection
 <a href="#6">6. Empty Interface in Go</a><br>
 <a href="#7">7. Error in Go</a><br>
 <a href="#8">8. FFT</a><br>
-<a href="#9">9. From Coontainers to Pods to Deployments to Services to Ingress</a>
+<a href="#9">9. From Containers to Pods to Deployments to Services to Ingress</a><br>
 <a href="#10">10. YAML
 <br><br><br><br>
 
