@@ -583,4 +583,5 @@ Use the following commands to get more information on this Deployment
 > kubectl get deployments
 > kubectl describe deployment rss-site
 ```
+Reference on https://www.mirantis.com/blog/introduction-to-yaml-creating-a-kubernetes-deployment/ <br>
 <a href="#top">Back to top</a>
