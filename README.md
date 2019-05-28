@@ -7,7 +7,8 @@ Collection
 <a href="#5">5. Characters in Go</a><br>
 <a href="#6">6. Empty Interface in Go</a><br>
 <a href="#7">7. Error in Go</a><br>
-<a href="#7">8. FFT</a>
+<a href="#8">8. FFT</a><br>
+<a href="#9">9. From Coontainers to Pods to Deployments to Services to Ingress</a>
 <br><br><br><br>
 
 <a id="1"/><hr>
@@ -499,3 +500,8 @@ func main() {
 ### 8. FFT
 https://blog.csdn.net/ViatorSun/article/details/82387854
 http://www.360doc.com/content/10/1128/20/2226925_73234298.shtml
+
+<a id="9"/><hr>
+### 9. From Coontainers to Pods to Deployments to Services to Ingress
+[![deployment1.png](https://i.postimg.cc/m2HvGgvQ/image1.png)](https://postimg.cc/zVqtC8XB)
+
