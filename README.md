@@ -84,6 +84,7 @@ func main() {
 // output: 0 1 1 2 3 5 8 13 21 34 (in each line)
 
 ```
+<a href="#top">Back to top</a>
 <a id="2"/><hr>
 ### 2. Pointer Receiver in Go
 No class in go, however, we can declare 'method' for a type that is defined in the same package.
@@ -159,7 +160,7 @@ func main() {
 }
 // output: {6 8} {6 8}  14 14
 ```
-
+<a href="#top">Back to top</a>
 
 
 <a id="3"/><hr>
@@ -389,7 +390,8 @@ public class MyHashMap<K, V> {
 ```
 Difference between mod and remainder: <br>
 -21 mod 4 is 3 because -21 + 4 x 6 is 3.<br>
-But -21 divided by 4 gives -5 with a remainder of -1.
+But -21 divided by 4 gives -5 with a remainder of -1.<br>
+<a href="#top">Back to top</a>
 
 <a id="4"/><hr>
 ### 4. fmt.Springer Interface 
@@ -421,6 +423,7 @@ func main() {
 //	output:	loopback: 127.0.0.1
 //		googleDNS: 8.8.8.8
 ```
+<a href="#top">Back to top</a>
 
 <a id="5"/><hr>
 ### 5.characters in Go
@@ -436,6 +439,7 @@ func main() {
 // output: 9829, 97
 
 ```
+<a href="#top">Back to top</a>
 
 <a id="6"/><hr>
 ### 6. Empty Interface in Go
@@ -460,6 +464,7 @@ An example is function fmt.Print/ fmt.Printf/ fmt.Println. Their argument can be
 ```go
 func Println(a ...interface{}) (n int, err error)
 ```
+<a href="#top">Back to top</a>
 
 <a id="7"/><hr>
 ### 7. Error in Go
@@ -497,14 +502,18 @@ func main() {
 }
 // output: at .... it didn't work
 ```
+<a href="#top">Back to top</a>
+
 <a id="8"/><hr>
 ### 8. FFT
 https://blog.csdn.net/ViatorSun/article/details/82387854
-http://www.360doc.com/content/10/1128/20/2226925_73234298.shtml
+http://www.360doc.com/content/10/1128/20/2226925_73234298.shtml <br>
+<a href="#top">Back to top</a>
 
 <a id="9"/><hr>
 ### 9. From Coontainers to Pods to Deployments to Services to Ingress
-[![deployment1.png](https://i.postimg.cc/m2HvGgvQ/image1.png)](https://postimg.cc/zVqtC8XB)
+[![deployment1.png](https://i.postimg.cc/m2HvGgvQ/image1.png)](https://postimg.cc/zVqtC8XB) <br>
+<a href="#top">Back to top</a>
 
 <a id="10"/><hr>
 ### 10. YAML
@@ -574,3 +583,4 @@ Use the following commands to get more information on this Deployment
 > kubectl get deployments
 > kubectl describe deployment rss-site
 ```
+<a href="#top">Back to top</a>
