@@ -9,6 +9,7 @@ Collection
 <a href="#7">7. Error in Go</a><br>
 <a href="#8">8. FFT</a><br>
 <a href="#9">9. From Coontainers to Pods to Deployments to Services to Ingress</a>
+<a href="#10">10. YAML
 <br><br><br><br>
 
 <a id="1"/><hr>
@@ -505,3 +506,71 @@ http://www.360doc.com/content/10/1128/20/2226925_73234298.shtml
 ### 9. From Coontainers to Pods to Deployments to Services to Ingress
 [![deployment1.png](https://i.postimg.cc/m2HvGgvQ/image1.png)](https://postimg.cc/zVqtC8XB)
 
+<a id="10"/><hr>
+### 10. YAML
+It is difficult to escape YAML if you are doing anything related to software deployment. YAML, which stands for Yet Another Markup Language, or YAML Ain't Markup Language is a superset of JSON format, and it is a human-readable text-based format for specifying configuration-type information.<br>
+We will use YAML to create a Pod and Deployment with kubernetes in the following sections.
+##### 10.1 YAML basics
+1. As a format for configuration, YAML has two types of structures: Lists & Maps.<br>
+You might have maps of lists, lists of maps, lists of lists, and maps of maps based on them.<br>
+2. No Tabs in YAML files. You could only use equal number of spaces for each level.
+##### 10.2 Create a Pod using YAML on Kubernetes
+Once your images for the containers are available for Kubernetes, we are ready to write the YAML file for configuration of a Pod.<br>
+This Pod consists of two containers, one created from an nginx official image, another from an image created by someone called "nickchase" on DockerHub.
+```YAML
+---
+apiVersion:v1
+kind:Pod
+metadata:
+  name:rss-site
+  labels:
+    app:web
+spec:
+  containers:
+  - name:front-end
+    image:nginx
+    ports:
+    - containerPorts:80
+  - name:rss-reader
+    image:nickchase/rss-php-nginx:v1
+    ports:
+    - containerPorts:88
+```
+Save the file as pod.yaml and then running the following command:<br>
+```
+> kubectl create -f pod.yaml
+pod "rss-site" created
+```
+It shows the pod is successfully created.
+By checking the pods using kubectl commands:
+```
+> kubectl get pods
+NAME       READY     STATUS    RESTARTS   AGE
+rss-site   2/2       Running   0          14s
+```
+We could get the information of the pods created just now.<br>
+##### 10.3 Create a Deployment using YAML on Kubernetes
+In the previous section, we use YAML to set up a single instance of a Pod. For Deployment, we might tell K8s to manage a set of replicas of that Pod, to make sure certain number of these instances are always available.<br>
+In this YAML file, we have to specify a number of replicas and which template(Pod) should be used to create replicas. So, in the template part for each replica specification, it is the same as writing a Pod configuration in the previous section.
+```YAML
+apiVersion:extensions/v1beta1
+kind:Dployment
+metadata:
+  name:rss-site
+spec:
+  replicas:2
+  template:
+    # (same as the Pod configuration in previous section)
+    # metadata:...
+    # spec:
+```
+Then save the file as deployment.yaml and create the deployment using following command:
+```
+> kubectl create -f deployment.yaml
+deployment "rss-site" created
+```
+Use the following commands to get more information on this Deployment
+```
+> kubectl get deployments
+> kubectl describe deployment rss-site
+```
