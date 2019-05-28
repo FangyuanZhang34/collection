@@ -562,7 +562,7 @@ spec:
   template:
     # (same as the Pod configuration in previous section)
     # metadata:...
-    # spec:
+    # spec:...
 ```
 Then save the file as deployment.yaml and create the deployment using following command:
 ```
