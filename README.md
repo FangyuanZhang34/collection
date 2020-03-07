@@ -9,7 +9,8 @@ Collection
 <a href="#7">7. Error in Go</a><br>
 <a href="#8">8. FFT</a><br>
 <a href="#9">9. From Containers to Pods to Deployments to Services to Ingress</a><br>
-<a href="#10">10. YAML
+<a href="#10">10. YAML</a><br>
+<a href="#11">11. Git useful commands</a>
 <br><br><br><br>
 
 <a id="1"/><hr>
@@ -584,4 +585,42 @@ Use the following commands to get more information on this Deployment
 > kubectl describe deployment rss-site
 ```
 Reference: https://www.mirantis.com/blog/introduction-to-yaml-creating-a-kubernetes-deployment/ <br>
+<a href="#top">Back to top</a>
+
+<a id="11"/><hr>
+### 11. Git useful commands
+##### 10.1 update all branches from remote repository
+```
+git fetch
+```
+##### 10.2 unstage add
+```
+git reset HEAD
+```
+##### 10.3 unstage commit
+```
+git reset HEAD^
+```
+##### 10.4 reset hard to a commit
+```
+git reset --hard <hash code>
+```
+##### 10.5 reset hard to HEAD
+```
+git reset --hard HEAD
+```
+##### 10.6 create and checkout a newbranch
+```
+git checkout -b newbranch
+```
+##### 10.7 cherry-pick a commit from branch1 to branch2
+```
+git checkout branch1
+git log
+(copy the commit <hash code> you want to cherry-pick)
+git checkout branch2
+(stash or reset all the uncommitted changes in branch2)
+git cherry-pick <hash code>
+(the hash code will change after cherry-pick from branch1 to branch2)
+```
 <a href="#top">Back to top</a>
